@@ -5,7 +5,7 @@
     <!--/    Sidebar-->
 
     <div class="flex-1">
-      <TopHeader @toggle-sidebar="toggleSidebar"></TopHeader>
+      <Navbar @toggle-sidebar="toggleSidebar"></Navbar>
       <!--      Content-->
       <main class="p-6">
         <router-view></router-view>
@@ -18,7 +18,7 @@
 <script setup>
 import {ref} from 'vue'
 import Sidebar from "./Sidebar.vue";
-import TopHeader from "./TopHeader.vue";
+import Navbar from "./Navbar.vue";
 
 const {title} = defineProps({
   title: String
