@@ -21,7 +21,7 @@ class Admin
             return $next($request);
         }
         return response([
-            'message' => 'You don\'t have permission to perform this action'
+            'message' => 'У вас нет разрешения на выполнение этого действия'
         ], 403);
     }
 }

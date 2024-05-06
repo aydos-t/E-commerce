@@ -18,7 +18,7 @@ class AuthController extends Controller
         unset($credentials['remember']);
         if (!Auth::attempt($credentials, $remember)) {
             return response([
-                'message' => 'Email or password is incorrect'
+                'message' => 'Неверный адрес электронной почты или пароль'
             ], 422);
         }
 
@@ -27,7 +27,7 @@ class AuthController extends Controller
         if (!$user->is_admin) {
             Auth::logout();
             return response([
-                'message' => 'You don\'t have permission to authenticate as admin'
+                'message' => 'У вас нет разрешения на авторизацию в качестве администратора'
             ], 403);
         }
         $token = $user->createToken('main')->plainTextToken;
