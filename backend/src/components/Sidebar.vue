@@ -11,7 +11,7 @@
       </span>
     </router-link>
 
-    <router-link :to="{name: 'app.dashboard'}"
+    <router-link :to="{name: 'app.products'}"
                  class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
       <span class="mr-2 text-gray-300">
           <Bars3Icon class="w-5"/>
