@@ -1,8 +1,8 @@
 <template>
   <header class="flex justify-between items-center p-3 h-14 shadow bg-white">
 
-    <button @click="emit('toggle-sidebar')"
-            class="flex items-center justify-center roundedw-8 h-8 text-gray-700 hover:bg-black/10">
+      <button @click="emit('toggle-sidebar')"
+              class="flex items-center justify-center rounded transition-colors w-8 h-8 text-gray-700 hover:bg-black/10">
       <Bars3Icon class="w-6"/>
     </button>
 
@@ -30,6 +30,7 @@
           <div class="px-1 py-1">
             <MenuItem v-slot="{ active }">
               <button
+                  @click="logout"
                   :class="[
                   active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                   'group flex w-full items-center rounded-md px-2 py-2 text-sm',
@@ -71,8 +72,18 @@
 import {Menu, MenuButton, MenuItems, MenuItem,} from '@headlessui/vue'
 import {ChevronDownIcon, UsersIcon,} from '@heroicons/vue/24/solid'
 import {Bars3Icon, ArrowUturnRightIcon} from '@heroicons/vue/16/solid'
+import store from "../store";
+import router from "../router";
 
 const emit = defineEmits(['toggle-sidebar'])
+
+function logout() {
+    store.dispatch('logout')
+        .then(() => {
+            router.push({name: 'login'})
+        })
+}
+
 </script>
 
 <style scoped>
